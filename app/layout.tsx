@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Yubiescalona",
+    title: "NISSI",
     description: "Sistema Profesional de Gestion",
     icons: {
-        icon: "/nissi_logo_B.png",
+        icon: "/nissi_logo_W.png",
     },
 };
 

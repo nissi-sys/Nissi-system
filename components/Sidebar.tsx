@@ -18,6 +18,7 @@ import {
     Send,
     Sun,
     Moon,
+    X,
 } from "lucide-react";
 
 const navItems = [
@@ -33,9 +34,10 @@ interface SidebarProps {
     userRole: string;
     userName: string;
     userEmail: string;
+    onCloseMobile?: () => void;
 }
 
-export default function Sidebar({ userRole, userName, userEmail }: SidebarProps) {
+export default function Sidebar({ userRole, userName, userEmail, onCloseMobile }: SidebarProps) {
     const pathname = usePathname();
     const [collapsed, setCollapsed] = useState(false);
     const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -45,6 +47,10 @@ export default function Sidebar({ userRole, userName, userEmail }: SidebarProps)
         const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
         setTheme(currentTheme);
     }, []);
+
+    const handleMobileClose = () => {
+        if (onCloseMobile) onCloseMobile();
+    };
 
     const toggleTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";
@@ -79,12 +85,22 @@ export default function Sidebar({ userRole, userName, userEmail }: SidebarProps)
                     />
                 </div>
 
+                {/* Desktop Collapse Button */}
                 <button
                     onClick={() => setCollapsed(!collapsed)}
-                    className="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center transition-colors"
+                    className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full items-center justify-center transition-colors"
                     style={{ background: "var(--color-surface-3)", border: "1px solid var(--color-border)", color: "var(--color-text-muted)" }}
                 >
                     {collapsed ? <ChevronRight className="w-3 h-3" /> : <ChevronLeft className="w-3 h-3" />}
+                </button>
+
+                {/* Mobile Close Button */}
+                <button
+                    onClick={handleMobileClose}
+                    className="lg:hidden absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-xl transition-colors"
+                    style={{ color: "var(--color-text-muted)" }}
+                >
+                    <X className="w-5 h-5" />
                 </button>
             </div>
 
@@ -97,6 +113,7 @@ export default function Sidebar({ userRole, userName, userEmail }: SidebarProps)
                         <Link
                             key={item.href}
                             href={item.href}
+                            onClick={handleMobileClose}
                             className={cn(
                                 "flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group",
                                 isActive ? "active-nav" : "hover-nav"

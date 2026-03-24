@@ -54,16 +54,18 @@ export default function LoginPage() {
 
             <div className="relative w-full max-w-md px-6">
                 {/* Logo area */}
-                <div className="text-center mb-10 animate-fade-in">
-                    <div className="inline-flex items-center justify-center mb-5 w-full mx-auto" style={{ maxWidth: '280px' }}>
+                <div className="text-center mb-6 md:mb-10 animate-fade-in">
+                    <div className="inline-flex items-center justify-center mb-4 md:mb-5 w-full mx-auto" style={{ maxWidth: '240px' }}>
                         <img
                             src="/nissi_completo_W.png"
                             alt="Logo"
                             className="w-full h-auto object-contain drop-shadow-md"
-                            style={{ maxHeight: '120px' }}
+                            style={{ maxHeight: '100px' }}
                         />
                     </div>
-                    <div className="gold-divider mt-4" />
+                    <h2 className="text-xl md:text-2xl font-light tracking-tight" style={{ color: "var(--color-text)", fontFamily: "var(--font-cormorant)" }}>
+                        Ingreso al Sistema
+                    </h2>
                 </div>
 
                 {/* Login card */}

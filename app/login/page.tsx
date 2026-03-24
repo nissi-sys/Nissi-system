@@ -133,9 +133,8 @@ export default function LoginPage() {
                 </div>
 
                 <p className="text-center text-xs mt-8" style={{ color: "var(--color-text-dim)" }}>
-                    Yubiescalona | Impacto | Conexion | Seguros <br />
-                    Sistema profesional de gestión <br />
-                    © 2026 FC Soft-Arg
+                    Sistema profesional de gestion documental <br />
+                    Copyright 2026 NF System
                 </p>
             </div>
         </div>

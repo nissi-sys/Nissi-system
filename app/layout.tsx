@@ -3,9 +3,28 @@ import "./globals.css";
 
 export const metadata: Metadata = {
     title: "NISSI",
-    description: "Sistema Profesional de Gestion",
+    description: "Sistema Profesional de Gestion Documental",
     icons: {
         icon: "/nissi_logo_W.png",
+    },
+    openGraph: {
+        title: "NISSI",
+        description: "Sistema Profesional de Gestion Documental",
+        images: [
+            {
+                url: "/nissi_completo_W.png",
+                width: 1200,
+                height: 630,
+                alt: "NISSI Logo",
+            },
+        ],
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "NISSI",
+        description: "Sistema Profesional de Gestion Documental",
+        images: ["/nissi_completo_W.png"],
     },
 };
 
